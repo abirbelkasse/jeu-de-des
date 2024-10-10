@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jeu de dés</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>  
+  <div class="container">
+ <h1 class="text-center alert-info text-capitalize alert">jeu de dé</h1>
+<hr>   
+<section class="row">
+  <div class="col-md-4">
+   <img src="domino/1.png" alt="">
+  </div>
+  <div class="col-md-4">
+    <img src="domino/2.png" alt="" id="im2">
+  </div>
+</section>
+<div class="mt-5 text-center">
+<input type="button" value="Begin" class="btn btn-outline-info btn-lg" id="b1" onclick="begin()">
+<input type="button" value="Play" class="btn btn-outline-warning btn-lg" id="b2" onclick="play()">
+<input type="button" value="Replay" class="btn btn-outline-success btn-lg" id="b3" onclick="replay()">
+
+
+</div>
+<h2 id="c" class="text-danger text-center mt-3"></h2>
+  </div>
+</body>
+</html>
+<script>
+ var x=0 ,y=0 , c=0
+ function begin() {
+  x=(Math.floor(Math.random()*100)%6)+1
+  document.getElementById('im1').src="domino/"+x+".png"                                                          
+ }
+ function play() {
+  c++
+  document.getElementById('c').innerHTML="il vous reste "+(5-c)+"  tentative(s)"
+  if(c==5){
+    alert("Desolé vous avez perdu!!!")
+  }
+  else{
+    y=(Math.floor(Math.random()*100)%6)+1
+  document.getElementById('im2').src="domino/"+y+".png"
+  if(x==y){
+  alert("Felicitation vous avez gagné !!!")
+ 
+  }
+  }
+ }
+ function replay() {
+  document.getElementById('im1').src=""
+  document.getElementById('im2').src=""
+  c=0
+  document.getElementById('c').innerHTML=""
+ }
+  
+</script>
